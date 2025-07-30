@@ -40,7 +40,7 @@ function App() {
         <div className="text-center text-red-600 pb-3 max-w-[700px]">
           Support us to help you improve your english skill
         </div>
-        <div className="w-full max-w-[700px] flex gap-5">
+        <div className="w-full max-w-[700px] flex">
           <div className="flex-1 px-5">
             <p className="text-center font-medium text-lg pb-2">Qris</p>
             <img
@@ -54,7 +54,7 @@ function App() {
               download="qris.png"
               className="bg-black text-white px-4 py-2 rounded-lg text-center font-medium mt-2 cursor-pointer hover:scale-[102%] transition block"
             >
-              Download Gambar
+              Download Picture
             </a>
           </div>
           <div className="flex-1 px-5">
@@ -65,7 +65,7 @@ function App() {
                 window.open("https://saweria.co/syamvocabstudio", "_blank")
               }
             >
-              <p className="font-medium">klik disini</p>
+              <p className="font-medium text-center">Click Here</p>
               <i className="fa-regular fa-circle-right mb-1"></i>
             </div>
           </div>
