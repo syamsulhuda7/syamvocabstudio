@@ -1,19 +1,12 @@
 import { useState } from "react";
 import { cardData } from "./file";
 import { Popup } from "./popup";
+import ParallaxBackground from "./Parallax";
 
 function App() {
   const [isOpen, setIsOpen] = useState("");
   return (
-    <div
-      style={{
-        backgroundImage: "url('/backdrop.png')",
-        backgroundSize: "contain",
-        // backgroundRepeat: "no-repeat",
-        // backgroundPosition: "center",
-      }}
-      className="w-full min-h-screen scroll-auto flex flex-col items-center justify-start"
-    >
+    <ParallaxBackground>
       {isOpen.length > 0 && <Popup img={isOpen} setIsOpen={setIsOpen} />}
 
       {/* Hero Section */}
@@ -102,7 +95,7 @@ function App() {
           ))}
         </div>
       </div>
-    </div>
+    </ParallaxBackground>
   );
 }
 
