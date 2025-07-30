@@ -38,13 +38,13 @@ function App() {
             <p className="text-center font-medium text-lg pb-2">Qris</p>
             <img
               className="w-full h-fit shadow shadow-slate-400 cursor-pointer hover:scale-[103%] transition"
-              src="/qris.png"
+              src="/qris.jpg"
               alt="qris"
-              onClick={() => setIsOpen("/qris.png")}
+              onClick={() => setIsOpen("/qris.jpg")}
             />
             <a
-              href="/qris.png"
-              download="qris.png"
+              href="/qris.jpg"
+              download="qris.jpg"
               className="bg-black text-white px-4 py-2 rounded-lg text-center font-medium mt-2 cursor-pointer hover:scale-[102%] transition block"
             >
               Download Picture
