@@ -65,13 +65,14 @@ function App() {
         </div>
 
         {/* filter category */}
-        <div className="w-full mb-5 flex items-center justify-center gap-3">
+        <div className="w-full mb-5 flex items-center justify-center gap-2">
           {categories.map((item, index) => (
             <div
+              key={index}
               onClick={() => setCategoryFilter(item)}
               className={`${
                 categoryFilter === item && "bg-slate-700 text-white"
-              } w-fit px-4 py-2 pb-3 rounded-xl border-[3px] border-slate-700 text-slate-900 font-medium cursor-pointer transition hover:bg-slate-700 hover:text-white`}
+              } w-fit px-2 py-1 pb-2 rounded-xl border-[3px] border-slate-700 text-slate-900 font-medium cursor-pointer transition hover:bg-slate-700 hover:text-white`}
             >
               {item}
             </div>
