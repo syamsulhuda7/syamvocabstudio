@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react";
-import { cardData } from "./file";
 import { Popup } from "./popup";
 import ParallaxBackground from "./Parallax";
+import { conversationData, NounsData, verbsData } from "./file";
 
 function App() {
   const [isOpen, setIsOpen] = useState("");
   const [allData, setAllData] = useState([]);
   const [totalPage, setTotalPage] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+  const [categoryFilter, setCategoryFilter] = useState("all");
 
+  let cardData = [...conversationData, ...verbsData, ...NounsData];
+  const categories = ["all", ...new Set(cardData.map((item) => item.category))];
   const itemPerPage = 5;
 
   useEffect(() => {
+    if (categoryFilter !== "all") {
+      cardData = cardData.filter((item) => item.category === categoryFilter);
+    }
     const titleElement = document.getElementById("title");
     if (titleElement) {
       titleElement.scrollIntoView({ behavior: "smooth" });
@@ -24,8 +30,8 @@ function App() {
           itemPerPage * currentPage
         )
       );
-    }, 500);
-  }, [currentPage]);
+    }, 50);
+  }, [currentPage, categoryFilter]);
 
   console.log(totalPage);
   return (
@@ -57,6 +63,21 @@ function App() {
           You can download the cards below{" "}
           <i className="fa-regular fa-square-caret-down"></i>
         </div>
+
+        {/* filter category */}
+        <div className="w-full mb-5 flex items-center justify-center gap-3">
+          {categories.map((item, index) => (
+            <div
+              onClick={() => setCategoryFilter(item)}
+              className={`${
+                categoryFilter === item && "bg-slate-700 text-white"
+              } w-fit px-4 py-2 pb-3 rounded-xl border-[3px] border-slate-700 text-slate-900 font-medium cursor-pointer transition hover:bg-slate-700 hover:text-white`}
+            >
+              {item}
+            </div>
+          ))}
+        </div>
+
         <div className="w-full max-w-[700px] flex flex-col gap-4">
           {allData.map((item, index) => (
             <div
@@ -64,7 +85,9 @@ function App() {
               className="bg-slate-200 shadow-md shadow-slate-400 rounded-xl flex items-center w-full px-2 py-3 cursor-pointer hover:scale-[102%] transition"
               onClick={() => window.open(item.link, "_blank")}
             >
-              <p className="px-2 pr-3 font-medium">{item.id}</p>
+              <p className="px-2 pr-3 font-medium">
+                {itemPerPage * (currentPage - 1) + index + 1}
+              </p>
               <img
                 className="w-10 h-fit"
                 loading="lazy"
