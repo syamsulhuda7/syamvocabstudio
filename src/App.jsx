@@ -72,7 +72,7 @@ function App() {
               onClick={() => setCategoryFilter(item)}
               className={`${
                 categoryFilter === item && "bg-slate-700 text-white"
-              } w-fit px-2 py-1 pb-2 rounded-xl border-[3px] border-slate-700 text-slate-900 font-medium cursor-pointer transition hover:bg-slate-700 hover:text-white`}
+              } w-fit px-2 py-1 pb-[6px] rounded-xl border-[3px] border-slate-700 text-slate-900 font-medium cursor-pointer transition hover:bg-slate-700 hover:text-white`}
             >
               {item}
             </div>
